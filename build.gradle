@@ -2,6 +2,7 @@ buildscript {
   repositories {
     jcenter()
     mavenCentral()
+    maven { url "https://clojars.org/repo/" }
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:2.2.0'
@@ -14,6 +15,7 @@ allprojects {
   repositories {
     jcenter()
     mavenCentral()
+    maven { url "https://clojars.org/repo/" }
   }
 }
 
@@ -29,6 +31,8 @@ ext.versions = [COMPILE_SDK    : 24,
                 BUTTER_KNIFE   : "8.4.0",
                 DAGGER         : "2.6.1",
                 GLIDE          : "3.7.0",
+                ICE_PICK       : "3.2.0",
+                EVENT_BUS      : "3.0.0",
                 RETROFIT       : "2.0.0",
                 RX_ANDROID     : "1.2.1",
                 RX_JAVA        : "1.1.9",

@@ -63,6 +63,13 @@ dependencies {
   //Glide dependencies
   compile "com.github.bumptech.glide:glide:$versions.GLIDE"
 
+  //EventBus dependencies
+  compile "org.greenrobot:eventbus:$versions.EVENT_BUS"
+
+  //IcePick dependencies
+  compile "frankiesardo:icepick:$versions.ICE_PICK"
+  provided "frankiesardo:icepick-processor:$versions.ICE_PICK"
+
   //Retrofit dependencies
   compile "com.squareup.retrofit2:retrofit:$versions.RETROFIT"
   compile "com.squareup.retrofit2:adapter-rxjava:$versions.RETROFIT"
@@ -76,7 +83,7 @@ dependencies {
 
   //Test dependencies
   testCompile "junit:junit:$versions.JUNIT"
-  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-    exclude group: 'com.android.support', module: 'support-annotations'
+  androidTestCompile("com.android.support.test.espresso:espresso-core:2.2.2", {
+    exclude group: "com.android.support", module: "support-annotations"
   })
 }
