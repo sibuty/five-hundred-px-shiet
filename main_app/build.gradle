@@ -1,30 +1,82 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
-  compileSdkVersion 24
-  buildToolsVersion "23.0.3"
+  compileSdkVersion versions.COMPILE_SDK
+  buildToolsVersion versions.BUILD_TOOLS
+  def fileName
   defaultConfig {
     applicationId "seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet"
-    minSdkVersion 15
-    targetSdkVersion 24
-    versionCode 1
-    versionName "1.0"
+    minSdkVersion versions.MIN_SDK
+    targetSdkVersion versions.TARGET_SDK
+    versionCode Integer.valueOf("${APK_VERSION_CODE}");
+    versionName "${APK_VERSION}.${versionCode}"
+    fileName = "${APK_NAME}-${versionName}"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      applicationVariants.all { variant -> appendVersionNameVersionCode(variant, fileName)
+      }
     }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  retrolambda {
+    jdk System.getenv("JAVA8_HOME")
+    oldJdk System.getenv("JAVA7_HOME")
+    javaVersion JavaVersion.VERSION_1_7
+  }
+}
+
+def appendVersionNameVersionCode(variant, fileName) {
+  variant.outputs.each { output ->
+    def file = output.packageApplication.outputFile
+    output.packageApplication.outputFile = new File(file.parent, fileName)
   }
 }
 
 dependencies {
+
+  //Local jar dependencies
   compile fileTree(dir: 'libs', include: ['*.jar'])
+
+  // Support dependencies
+  compile "com.android.support:appcompat-v7:$versions.ANDROID_SUPPORT"
+  compile "com.android.support:design:$versions.ANDROID_SUPPORT"
+  compile "com.android.support:support-v4:$versions.ANDROID_SUPPORT"
+  compile "com.android.support:recyclerview-v7:$versions.ANDROID_SUPPORT"
+
+  //Butter Knife dependencies
+  compile "com.jakewharton:butterknife:$versions.BUTTER_KNIFE"
+  apt "com.jakewharton:butterknife-compiler:$versions.BUTTER_KNIFE"
+
+  //Dagger dependencies
+  compile "com.google.dagger:dagger:$versions.DAGGER"
+  apt "com.google.dagger:dagger-compiler:$versions.DAGGER"
+
+  //Glide dependencies
+  compile "com.github.bumptech.glide:glide:$versions.GLIDE"
+
+  //Retrofit dependencies
+  compile "com.squareup.retrofit2:retrofit:$versions.RETROFIT"
+  compile "com.squareup.retrofit2:adapter-rxjava:$versions.RETROFIT"
+  compile "com.squareup.retrofit2:converter-jackson:$versions.RETROFIT"
+
+  //Rx dependencies
+  compile "io.reactivex:rxandroid:$versions.RX_ANDROID"
+  // Because RxAndroid releases are few and far between, it is recommended you also
+  // explicitly depend on RxJava"s latest version for bug fixes and new features.
+  compile "io.reactivex:rxjava:$versions.RX_JAVA"
+
+  //Test dependencies
+  testCompile "junit:junit:$versions.JUNIT"
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
-  compile 'com.android.support:appcompat-v7:24.2.1'
-  compile 'com.android.support:design:24.2.1'
-  testCompile 'junit:junit:4.12'
 }
