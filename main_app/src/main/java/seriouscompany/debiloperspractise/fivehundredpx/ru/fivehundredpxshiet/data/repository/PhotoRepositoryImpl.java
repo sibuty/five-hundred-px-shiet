@@ -1,5 +1,6 @@
 package seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.data.repository;
 
+import seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.data.entity.Photo;
 import seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.data.entity.query.base.IQuery;
 import seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.data.repository.base.IRepository;
 
@@ -7,30 +8,33 @@ import seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.dat
  * Created by Igor on 25.09.2016.
  */
 
-public class PhotoRepositoryImpl implements IRepository {
+public class PhotoRepositoryImpl implements IRepository<Photo> {
 
   @Override
-  public void create() {
-
+  public Photo create() {
+    return null;
   }
 
   @Override
-  public void read() {
+  public Photo read() {
 
+    return null;
   }
 
   @Override
-  public void update() {
+  public Photo update() {
 
+    return null;
   }
 
   @Override
-  public void delete() {
+  public Photo delete() {
 
+    return null;
   }
 
   @Override
-  public void matching(IQuery query) {
-
+  public boolean matching(IQuery query) {
+    return false;
   }
 }

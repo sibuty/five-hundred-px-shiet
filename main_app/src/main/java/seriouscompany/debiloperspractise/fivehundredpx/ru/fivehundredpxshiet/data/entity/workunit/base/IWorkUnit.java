@@ -15,6 +15,4 @@ public interface IWorkUnit {
   void commit();
 
   void rollback();
-
-  void fromNetWork();
 }

@@ -6,15 +6,15 @@ import seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.dat
  * Created by Igor on 25.09.2016.
  */
 
-public interface IRepository {
+public interface IRepository<T> {
 
-  void create();
+  T create();
 
-  void read();
+  T read();
 
-  void update();
+  T update();
 
-  void delete();
+  T delete();
 
-  void matching(IQuery query);
+  boolean matching(IQuery query);
 }

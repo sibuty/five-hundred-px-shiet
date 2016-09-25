@@ -9,5 +9,4 @@ import seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.dat
 public interface IQuery {
 
   void execute(final IWorkUnit workUnit);
-
 }
