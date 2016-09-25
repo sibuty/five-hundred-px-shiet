@@ -1,4 +1,4 @@
-package seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.ui;
+package seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
