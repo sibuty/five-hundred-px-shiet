@@ -1,4 +1,4 @@
-package seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet;
+package seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import seriouscompany.debiloperspractise.fivehundredpx.ru.fivehundredpxshiet.R;
 
 public class MainActivity extends AppCompatActivity {
 
